@@ -106,9 +106,9 @@ class PostFormTests(TestCase):
             content_type='image/gif'
         )
         form_data = {
-                'text': 'Новый пост_ред.',
-                'group': self.group_2.pk,
-                'image': uploaded
+            'text': 'Новый пост_ред.',
+            'group': self.group_2.pk,
+            'image': uploaded
         }
         response = self.authorized_user.post(
             reverse('posts:post_edit', args=[self.post.pk]),
