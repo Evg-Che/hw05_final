@@ -92,6 +92,11 @@ class Comment(models.Model):
         auto_now_add=True,
     )
 
+    class Meta:
+        verbose_name = 'Комментарий'
+        verbose_name_plural = 'Комментарии'
+        ordering = ('-created',)
+
     def __str__(self):
         return self.text[:TEXT_LIMIT]
 
@@ -111,8 +116,10 @@ class Follow(models.Model):
     )
 
     class Meta:
+        verbose_name = 'Подписка'
+        verbose_name_plural = 'Подписки'
         models.UniqueConstraint(
-            fields=['user', 'author'],
+            fields=('user', 'author'),
             name='following'
         )
 
